@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8772576028296939265}
   - component: {fileID: 4405651459556873262}
   - component: {fileID: 125708316845933365}
+  - component: {fileID: 1650927957554421190}
   m_Layer: 0
   m_Name: Location4
   m_TagString: Untagged
@@ -30,7 +31,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8053129245962054810}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -91,12 +92,52 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   PlayerManager: {fileID: 0}
+  regionOutline: {fileID: 0}
+  regionImage: {fileID: 0}
+  region: {fileID: 0}
   GameManager: {fileID: 0}
   UIManager: {fileID: 0}
   SpawnBtnScript: {fileID: 0}
+  activitiesScript: {fileID: 0}
+  ChangeBtn: {fileID: 0}
+  ActivitiesBtn: {fileID: 0}
+  BuildingBtn: {fileID: 0}
+  Spy: {fileID: 0}
+  CurrentUnit: {fileID: 0}
+  isHomeforFirst: 0
+  isHomeforSecond: 0
+  isFinanceCener: 0
+  isSlums: 0
+  isAeroport: 0
+  IsOwnerNone: 0
   IsOwnerFirst: 1
-  startPoint: {x: 0, y: 0}
+  HaveSpy: 0
   isBusy: 0
+  HaveOffice: 0
+  HavePoliceStation: 0
+  HaveBarracks: 0
+  HaveMine: 1
+  OfficeBtn: {fileID: 0}
+  PoliceBtn: {fileID: 0}
+  BarracksBtn: {fileID: 0}
+  MineBtn: {fileID: 0}
+  OfficeBtnActive: {fileID: 0}
+  PoliceBtnActive: {fileID: 0}
+  BarracksBtnActive: {fileID: 0}
+  MineBtnActive: {fileID: 0}
+  Influence: 70
+  slider: {fileID: 0}
+  sliderObject: {fileID: 0}
+  alliagnceText: {fileID: 0}
+  Neighbour1: {fileID: 0}
+  Neighbour2: {fileID: 0}
+  Neighbour3: {fileID: 0}
+  Neighbour4: {fileID: 0}
+  NeighbourScript1: {fileID: 0}
+  NeighbourScript2: {fileID: 0}
+  NeighbourScript3: {fileID: 0}
+  NeighbourScript4: {fileID: 0}
+  NeighbourCount: 2
 --- !u!222 &3447271679676787895
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -118,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.25882354, g: 0.33333334, b: 0.5882353, a: 0.2627451}
+  m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -202,6 +243,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &125708316845933365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -226,5 +291,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 300, y: 300}
+  m_Size: {x: 150, y: 150}
   m_EdgeRadius: 0
+--- !u!114 &1650927957554421190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053129245962054810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 10, y: 10}
+  m_UseGraphicAlpha: 1

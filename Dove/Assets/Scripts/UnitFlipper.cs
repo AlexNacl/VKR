@@ -7,6 +7,7 @@ public class UnitFlipper : MonoBehaviour
 {
     public Sprite Front;
     public Sprite Back;
+    public Sprite EnemyPolice;
 
     public void FlipBack()
     {
@@ -22,9 +23,19 @@ public class UnitFlipper : MonoBehaviour
     {
         Sprite currentSprite = gameObject.GetComponent<Image>().sprite;
 
-        if(currentSprite == Back)
+        if(currentSprite == Back || EnemyPolice)
         {
             gameObject.GetComponent<Image>().sprite = Front;
+        }
+    }
+
+    public void FlipPolice()
+    {
+        Sprite currentSprite = gameObject.GetComponent<Image>().sprite;
+
+        if(currentSprite == Back)
+        {
+            gameObject.GetComponent<Image>().sprite = EnemyPolice;
         }
     }
 }

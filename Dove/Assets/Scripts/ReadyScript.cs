@@ -10,11 +10,12 @@ public class ReadyScript : NetworkBehaviour
     public GameManager GameManager;
     public GameObject ReadyCanvas;
     public GameObject ServerScreen;
+    public PlayerManager playerManager;
 
     [SyncVar]
     public int ReadyClicks = 0;
 
-    public  override void OnStartClient()
+    public override void OnStartClient()
     {
         base.OnStartClient();
 
@@ -43,7 +44,16 @@ public class ReadyScript : NetworkBehaviour
     [ClientRpc]
     void RpcRemoveCurtain()
     {
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        playerManager = networkIdentity.GetComponent<PlayerManager>();
         ReadyCanvas.SetActive(false);
         ServerScreen.SetActive(false);
+        playerManager.WhoTurn();
+        playerManager.ConnectRegions();
+        playerManager.TerCount();
+        playerManager.DisplayPoints();
     }
+
+
+
 }

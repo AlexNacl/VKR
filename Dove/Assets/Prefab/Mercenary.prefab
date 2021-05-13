@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -4578660956832380401}
   - component: {fileID: -864236803453795547}
   - component: {fileID: -3363158239897498059}
+  - component: {fileID: 6546407625118593969}
   m_Layer: 8
   m_Name: Mercenary
   m_TagString: Untagged
@@ -133,8 +134,11 @@ MonoBehaviour:
   GameManager: {fileID: 0}
   Canvas: {fileID: 0}
   PlayerManager: {fileID: 0}
-  regionScript: {fileID: 0}
+  ParentRegionScript: {fileID: 0}
   NewRegionScript: {fileID: 0}
+  BattleScript: {fileID: 0}
+  isDraggable: 1
+  DropZone: {fileID: 0}
 --- !u!114 &2944319531320824658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,3 +245,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Front: {fileID: 21300000, guid: e5c15d786e5d14447ace5cacacad1e87, type: 3}
   Back: {fileID: 21300000, guid: 063269c51af83dd429f8138b562ed5e6, type: 3}
+--- !u!114 &6546407625118593969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166200082441648066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc043ffec36b73449dfd525ae05c97b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  GameManager: {fileID: 0}
+  Canvas: {fileID: 0}
+  PlayerManager: {fileID: 0}
+  ParentRegionScript: {fileID: 0}
+  NewRegionScript: {fileID: 0}
+  isOwnerFirst: 0
+  Power: 10

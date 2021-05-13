@@ -84,7 +84,19 @@ MonoBehaviour:
   UIManager: {fileID: 0}
   Mercenary: {fileID: 5166200082441648066, guid: 35b935607e48431488cef2966052666c, type: 3}
   Guard: {fileID: 3239706562468087893, guid: 4829f956d5e2b2a43ba2bc86f7ad8382, type: 3}
+  Spy: {fileID: 4136094364698793639, guid: dda3216b7e7ffdf48b8bb4388e552fa4, type: 3}
   UnitLayer: {fileID: 0}
+  PointInfo: {fileID: 0}
+  PointsText: {fileID: 0}
+  TerritoriesText: {fileID: 0}
   GameManager: {fileID: 0}
   isMyTurn: 0
   FirstPlayer: 0
+  LocationSlot1: {fileID: 0}
+  LocationSlot2: {fileID: 0}
+  LocationSlot3: {fileID: 0}
+  LocationSlot4: {fileID: 0}
+  LocationSlot5: {fileID: 0}
+  LocationSockets: []
+  PlayerTerritories: []
+  regionScript: {fileID: 0}

@@ -1,0 +1,138 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class MapCombiner : MonoBehaviour
+{
+
+    public GameObject LocationSlot1;
+    public GameObject LocationSlot2;
+    public GameObject LocationSlot3;
+    public GameObject LocationSlot4;
+    public GameObject LocationSlot5;
+    public GameObject LocationSlot6;
+    public GameObject LocationSlot7;
+    public GameObject LocationSlot8;
+    public GameObject LocationSlot9;
+    public GameObject LocationSlot10;
+    public GameObject LocationSlot11;
+    public GameObject LocationSlot12;
+    public GameObject LocationSlot13;
+    public GameObject LocationSlot14;
+    public GameObject LocationSlot15;
+    public GameObject LocationSlot16;
+    public GameObject LocationSlot17;
+    public GameObject LocationSlot18;
+    public GameObject LocationSlot19;
+    public GameObject LocationSlot20;
+    public GameObject LocationSlot21;
+    public GameObject LocationSlot22;
+    public GameObject LocationSlot23;
+    public GameObject LocationSlot24;
+    public GameObject LocationSlot25;
+    public GameObject LocationSlot26;
+    public GameObject LocationSlot27;
+    public GameObject LocationSlot28;
+    public GameObject LocationSlot29;
+    public GameObject LocationSlot30;
+    public GameObject LocationSlot31;
+    public GameObject LocationSlot32;
+    public GameObject LocationSlot33;
+    public GameObject LocationSlot34;
+    public GameObject LocationSlot35;
+    public GameObject LocationSlot36;
+    public GameObject LocationSlot37;
+    public GameObject LocationSlot38;
+    public GameObject LocationSlot39;
+    public GameObject LocationSlot40;
+
+    public List<GameObject> LocationSockets = new List<GameObject>();
+
+    public List<GameObject> Combine()
+    {
+        LocationSlot1 = GameObject.Find("AeroportLoc1");
+        LocationSlot2 = GameObject.Find("AeroportLoc2");
+        LocationSlot3 = GameObject.Find("FinanceLoc1");
+        LocationSlot4 = GameObject.Find("FinanceLoc2");
+        LocationSlot5 = GameObject.Find("FinanceLoc3");
+        LocationSlot6 = GameObject.Find("FinanceLoc4");
+        LocationSlot7 = GameObject.Find("SlumsLoc1");
+        LocationSlot8 = GameObject.Find("SlumsLoc2");
+        LocationSlot9 = GameObject.Find("ClearLoc32");
+        LocationSlot10 = GameObject.Find("ClearLoc1");
+        LocationSlot11 = GameObject.Find("ClearLoc2");
+        LocationSlot12 = GameObject.Find("ClearLoc3");
+        LocationSlot13 = GameObject.Find("ClearLoc4");
+        LocationSlot14 = GameObject.Find("ClearLoc5");
+        LocationSlot15 = GameObject.Find("ClearLoc6");
+        LocationSlot16 = GameObject.Find("ClearLoc7");
+        LocationSlot17 = GameObject.Find("ClearLoc8");
+        LocationSlot18 = GameObject.Find("ClearLoc9");
+        LocationSlot19 = GameObject.Find("ClearLoc10");
+        LocationSlot20 = GameObject.Find("ClearLoc11");
+        LocationSlot21 = GameObject.Find("ClearLoc12");
+        LocationSlot22 = GameObject.Find("ClearLoc13");
+        LocationSlot23 = GameObject.Find("ClearLoc14");
+        LocationSlot24 = GameObject.Find("ClearLoc15");
+        LocationSlot25 = GameObject.Find("ClearLoc16");
+        LocationSlot26 = GameObject.Find("ClearLoc17");
+        LocationSlot27 = GameObject.Find("ClearLoc18");
+        LocationSlot28 = GameObject.Find("ClearLoc19");
+        LocationSlot29 = GameObject.Find("ClearLoc20");
+        LocationSlot30 = GameObject.Find("ClearLoc21");
+        LocationSlot31 = GameObject.Find("ClearLoc22");
+        LocationSlot32 = GameObject.Find("ClearLoc23");
+        LocationSlot33 = GameObject.Find("ClearLoc24");
+        LocationSlot34 = GameObject.Find("ClearLoc25");
+        LocationSlot35 = GameObject.Find("ClearLoc26");
+        LocationSlot36 = GameObject.Find("ClearLoc27");
+        LocationSlot37 = GameObject.Find("ClearLoc28");
+        LocationSlot38 = GameObject.Find("ClearLoc29");
+        LocationSlot39 = GameObject.Find("ClearLoc30");
+        LocationSlot40 = GameObject.Find("ClearLoc31");
+
+        LocationSockets.Add(LocationSlot1);
+        LocationSockets.Add(LocationSlot2);
+        LocationSockets.Add(LocationSlot3);
+        LocationSockets.Add(LocationSlot4);
+        LocationSockets.Add(LocationSlot5);
+        LocationSockets.Add(LocationSlot6);
+        LocationSockets.Add(LocationSlot7);
+        LocationSockets.Add(LocationSlot8);
+        LocationSockets.Add(LocationSlot9);
+        LocationSockets.Add(LocationSlot10);
+        LocationSockets.Add(LocationSlot11);
+        LocationSockets.Add(LocationSlot12);
+        LocationSockets.Add(LocationSlot13);
+        LocationSockets.Add(LocationSlot14);
+        LocationSockets.Add(LocationSlot15);
+        LocationSockets.Add(LocationSlot16);
+        LocationSockets.Add(LocationSlot17);
+        LocationSockets.Add(LocationSlot18);
+        LocationSockets.Add(LocationSlot19);
+        LocationSockets.Add(LocationSlot20);
+        LocationSockets.Add(LocationSlot21);
+        LocationSockets.Add(LocationSlot22);
+        LocationSockets.Add(LocationSlot23);
+        LocationSockets.Add(LocationSlot24);
+        LocationSockets.Add(LocationSlot25);
+        LocationSockets.Add(LocationSlot26);
+        LocationSockets.Add(LocationSlot27);
+        LocationSockets.Add(LocationSlot28);
+        LocationSockets.Add(LocationSlot29);
+        LocationSockets.Add(LocationSlot30);
+        LocationSockets.Add(LocationSlot31);
+        LocationSockets.Add(LocationSlot32);
+        LocationSockets.Add(LocationSlot33);
+        LocationSockets.Add(LocationSlot34);
+        LocationSockets.Add(LocationSlot35);
+        LocationSockets.Add(LocationSlot36);
+        LocationSockets.Add(LocationSlot37);
+        LocationSockets.Add(LocationSlot38);
+        LocationSockets.Add(LocationSlot39);
+        LocationSockets.Add(LocationSlot40);
+        return LocationSockets;
+    }
+
+}

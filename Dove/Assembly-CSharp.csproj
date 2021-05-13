@@ -36,9 +36,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ActivitiesScript.cs" />
      <Compile Include="Assets\Scripts\ScriptPanelChange.cs" />
+     <Compile Include="Assets\Scripts\BattleScript.cs" />
+     <Compile Include="Assets\Scripts\SpyDragNDrop.cs" />
      <Compile Include="Assets\Scripts\SpawnBtnScript.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
+     <Compile Include="Assets\Scripts\UnitFlipper.cs" />
      <Compile Include="Assets\Scripts\SoldierDragDropScript.cs" />
      <Compile Include="Assets\Scripts\RegionScript.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -49,7 +53,8 @@
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\ReadyScript.cs" />
      <Compile Include="Assets\Scripts\SceneLoad.cs" />
-     <Compile Include="Assets\Scripts\UnitFlipper.cs" />
+     <Compile Include="Assets\Scripts\UnitInfoScript.cs" />
+     <Compile Include="Assets\Scripts\MapCombiner.cs" />
      <None Include="Assets\ScriptTemplates\51-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt" />
      <None Include="Assets\ScriptTemplates\53-Mirror__Network Observer-NewNetworkObserver.cs.txt" />
      <None Include="Assets\ScriptTemplates\56-Mirror__Network Discovery-NewNetworkDiscovery.cs.txt" />

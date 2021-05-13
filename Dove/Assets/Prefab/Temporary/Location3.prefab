@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4313993361298241989}
   - component: {fileID: 3083805887739265262}
   - component: {fileID: 8571303994133062043}
+  - component: {fileID: 3339574067194240170}
   m_Layer: 0
   m_Name: Location3
   m_TagString: Untagged
@@ -30,7 +31,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8787960255338441895}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -91,12 +92,52 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   PlayerManager: {fileID: 0}
+  regionOutline: {fileID: 0}
+  regionImage: {fileID: 0}
+  region: {fileID: 0}
   GameManager: {fileID: 0}
   UIManager: {fileID: 0}
   SpawnBtnScript: {fileID: 0}
+  activitiesScript: {fileID: 0}
+  ChangeBtn: {fileID: 0}
+  ActivitiesBtn: {fileID: 0}
+  BuildingBtn: {fileID: 0}
+  Spy: {fileID: 0}
+  CurrentUnit: {fileID: 0}
+  isHomeforFirst: 0
+  isHomeforSecond: 0
+  isFinanceCener: 1
+  isSlums: 0
+  isAeroport: 0
+  IsOwnerNone: 0
   IsOwnerFirst: 0
-  startPoint: {x: 0, y: 0}
+  HaveSpy: 0
   isBusy: 0
+  HaveOffice: 0
+  HavePoliceStation: 0
+  HaveBarracks: 0
+  HaveMine: 0
+  OfficeBtn: {fileID: 0}
+  PoliceBtn: {fileID: 0}
+  BarracksBtn: {fileID: 0}
+  MineBtn: {fileID: 0}
+  OfficeBtnActive: {fileID: 0}
+  PoliceBtnActive: {fileID: 0}
+  BarracksBtnActive: {fileID: 0}
+  MineBtnActive: {fileID: 0}
+  Influence: 20
+  slider: {fileID: 0}
+  sliderObject: {fileID: 0}
+  alliagnceText: {fileID: 0}
+  Neighbour1: {fileID: 0}
+  Neighbour2: {fileID: 0}
+  Neighbour3: {fileID: 0}
+  Neighbour4: {fileID: 0}
+  NeighbourScript1: {fileID: 0}
+  NeighbourScript2: {fileID: 0}
+  NeighbourScript3: {fileID: 0}
+  NeighbourScript4: {fileID: 0}
+  NeighbourCount: 2
 --- !u!222 &4998174285015645812
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -118,14 +159,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16862746, g: 0.23137257, b: 0.61960787, a: 0.30588236}
+  m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 18d1333d704eeea4d8b8ab0987e56ba2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -202,6 +243,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &8571303994133062043
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -226,5 +291,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 250, y: 250}
+  m_Size: {x: 150, y: 150}
   m_EdgeRadius: 0
+--- !u!114 &3339574067194240170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8787960255338441895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 10, y: 10}
+  m_UseGraphicAlpha: 1
