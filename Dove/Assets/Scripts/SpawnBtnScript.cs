@@ -84,7 +84,6 @@ public class SpawnBtnScript : MonoBehaviour
                 }
                 PlayerManager.MercPlus();
                 PlayerManager.PlayPointsConsumed(2);
-                PlayerManager.DisplayPoints();
             }
 
             if (UnitId == 1)
@@ -101,7 +100,6 @@ public class SpawnBtnScript : MonoBehaviour
                 }
                 PlayerManager.GuardPlus();
                 PlayerManager.PlayPointsConsumed(1);
-                PlayerManager.DisplayPoints();
             }
 
             if (UnitId == 2)
@@ -122,7 +120,6 @@ public class SpawnBtnScript : MonoBehaviour
                     return;
                 }
                 PlayerManager.PlayPointsConsumed(4);
-                PlayerManager.DisplayPoints();
                 PlayerManager.SpyPlus();
             }
 
@@ -148,7 +145,6 @@ public class SpawnBtnScript : MonoBehaviour
             PlayerManager.PlayPointsConsumed(5);
             PlayerManager.UnitSpawn(UnitId, currentLocation);
             locationSpawn.CheckBuildings();
-            PlayerManager.DisplayPoints();
             UnitId = 100;
         }
         else 

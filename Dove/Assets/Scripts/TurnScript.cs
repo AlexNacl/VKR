@@ -50,13 +50,31 @@ public class TurnScript : MonoBehaviour
     {
         if (pm.FirstPlayer)
         {
+            PlayerManager.EndGame(1);
+        } else {
+            PlayerManager.EndGame(2);
+        }
+    }
+
+    public void EndGame()
+    {
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+        if (PlayerManager.FirstPlayer)
+        {
+            PlayerManager.EndGame(0);
+        } else {
+            PlayerManager.EndGame(0);
+        }
+    }
+
+    public void Disconnect()
+    {
+        if (PlayerManager.FirstPlayer)
+        {
             NetworkManager.singleton.StopClient();
-            EndCurtain.SetActive(true);
-            winnerText.text = "Winner:\nFirst player!";
         } else {
             NetworkManager.singleton.StopHost();
-            EndCurtain.SetActive(true);
-            winnerText.text = "Winner:\nSecond player!";
         }
     }
 }

@@ -13,7 +13,9 @@ public class RegionScript : NetworkBehaviour
     public GameManager GameManager;
     public UIManager UIManager;
     public SpawnBtnScript SpawnBtnScript;
+    public ScriptPanelChange PanelChange;
     public ActivitiesScript activitiesScript;
+    public ActivitiesScript SpyactivitiesScript;
     public GameObject ChangeBtn;
     public GameObject ActivitiesBtn;
     public GameObject SpyActivitiesBtn;
@@ -24,6 +26,14 @@ public class RegionScript : NetworkBehaviour
     public GameObject CurrentSpyFirst;
     public GameObject CurrentSpySecond;
     public GameObject InfoPanel;
+    public GameObject InfoList;
+    public GameObject buildingList;
+    public GameObject UnitList;
+    public GameObject SpawnBtn;
+    public GameObject ActivitiSpy;
+    public GameObject Activiti;
+    public GameObject ActivitiSpyClose;
+    public GameObject ActivitiClose;
 
     public bool isHomeforFirst;
     public bool isHomeforSecond;
@@ -90,6 +100,8 @@ public class RegionScript : NetworkBehaviour
     public  override void OnStartClient()
     {
         base.OnStartClient();
+        PanelChange = GameObject.Find("ChangeBtn").GetComponent<ScriptPanelChange>();
+        SpawnBtn = GameObject.Find("SpawnBtn");
         sliderObject = GameObject.Find("Slider");
         alliagnceText = GameObject.Find("AlliagnceText").GetComponent<Text>();
         slider = GameObject.Find("Slider").GetComponent<Slider>();
@@ -99,10 +111,15 @@ public class RegionScript : NetworkBehaviour
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         UIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         activitiesScript = GameObject.Find("Activities").GetComponent<ActivitiesScript>();
+        SpyactivitiesScript = GameObject.Find("SpyActivities").GetComponent<ActivitiesScript>();
         SpyActivitiesBtn = GameObject.Find("SpyActivitiesMenuOpen");
         SpawnBtnScript = GameObject.Find("SpawnBtn").GetComponent<SpawnBtnScript>();
         InfoPanel = GameObject.Find("InfoPanel");
+        ActivitiSpy = GameObject.Find("SpyActivities");
+        Activiti = GameObject.Find("Activities");
         ActivitiesBtn = GameObject.Find("ActivitiesMenuOpen");
+        ActivitiClose = GameObject.Find("ActivitiesMenuClose");
+        ActivitiSpyClose = GameObject.Find("SpyActivitiesMenuClose");
         ChangeBtn = GameObject.Find("ChangeBtn");
         BuildingBtn = GameObject.Find("BuildingBtn");
         OfficeBtn = GameObject.Find("Office");
@@ -113,6 +130,9 @@ public class RegionScript : NetworkBehaviour
         PoliceBtnActive = GameObject.Find("PoliceActive");
         BarracksBtnActive = GameObject.Find("BarracksActive");
         MineBtnActive = GameObject.Find("MineActive");
+        InfoList = GameObject.Find("InfoList");
+        buildingList = GameObject.Find("BuildingList");
+        UnitList = GameObject.Find("UnitList");
         OutlineChange();
 
         switch (NeighbourCount)
@@ -167,7 +187,11 @@ public class RegionScript : NetworkBehaviour
         //PlayerManager.TerCount();
         SliderSet();
         AlliagnceSet();
-
+        activitiesScript.SetLocation(this.gameObject);
+        SpyactivitiesScript.SetLocation(this.gameObject);
+        buildingList.SetActive(false);
+        UnitList.SetActive(false);
+        InfoList.SetActive(true);
         InfoPanel.SetActive(true);
         OfficeBtn.SetActive(true);
         PoliceBtn.SetActive(true);
@@ -177,12 +201,19 @@ public class RegionScript : NetworkBehaviour
         PoliceBtnActive.SetActive(false);
         BarracksBtnActive.SetActive(false);
         MineBtnActive.SetActive(false);
+        
         CheckBuildings();
 
         SpyActivitiesBtn.SetActive(false);
         ActivitiesBtn.SetActive(false);
         ChangeBtn.SetActive(false);
         BuildingBtn.SetActive(false);
+        SpawnBtn.SetActive(false);
+        Activiti.SetActive(false);
+        ActivitiSpy.SetActive(false);
+        ActivitiSpyClose.SetActive(false);
+        ActivitiClose.SetActive(false);
+        PanelChange.toNormal();
         Debug.Log("Click");
             SpawnBtnScript.SetName(this.gameObject);
         if (!IsOwnerNone && PlayerManager.FirstPlayer == IsOwnerFirst)

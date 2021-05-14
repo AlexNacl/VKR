@@ -70,6 +70,7 @@ public class SpyDragNDrop : NetworkBehaviour
 
     public void EndDrag()
     {
+        if (!isDraggable) return;
         isDragging = false;
         if (DropZone == null || DropZone == startParent)
         {
@@ -95,7 +96,6 @@ public class SpyDragNDrop : NetworkBehaviour
             PlayerManager.SetCurrentSpy(PlayerManager.FirstPlayer, ParentRegionScript, NewRegionScript, this.gameObject);
             PlayerManager.PlayUnitSpy(this.gameObject, DropZone);
             PlayerManager.PlayPointsConsumed(1);
-            PlayerManager.DisplayPoints();
             ParentRegionScript.SetNeighbourRegionsFlicker(false);
         } 
         else 

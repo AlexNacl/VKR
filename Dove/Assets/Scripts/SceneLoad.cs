@@ -8,6 +8,7 @@ public class SceneLoad : MonoBehaviour
     public int SceneNum;
     public Animator transition;
 
+
     public void LoadScene(){
         StartCoroutine(LoadLevel(SceneNum));
     }

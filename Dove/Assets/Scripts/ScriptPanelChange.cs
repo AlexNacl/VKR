@@ -105,4 +105,9 @@ public class ScriptPanelChange : MonoBehaviour
         State = 0;
         AnotherBtn.State = 0;
     }
+
+    public void toNormal()
+    {
+        toPanel();
+    }
 }

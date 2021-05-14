@@ -40,7 +40,8 @@ public class ActivitiesScript : MonoBehaviour
         }
         if (MoneyActivity)
         {
-            PlayerManager.MoneyActivity(locationSpawn);
+            PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+            PlayerManager.MoneyActivity(locationSpawn, PlayerManager.FirstPlayer);
             MoneyActivity = false;
             PlayerManager.PlayPointsConsumed(1);
         }
@@ -52,14 +53,14 @@ public class ActivitiesScript : MonoBehaviour
         }
         if (RumorsActivity)
         {
-            PlayerManager.MoneyActivity(locationSpawn);
+            PlayerManager.MoneyActivity(locationSpawn, PlayerManager.FirstPlayer);
             RumorsActivity = false;
             PlayerManager.PlayPointsConsumed(1);
         }
         if (BuyAuthorities)
         {
-            PlayerManager.MoneyActivity(locationSpawn);
-            PlayerManager.MoneyActivity(locationSpawn);
+            PlayerManager.MoneyActivity(locationSpawn, PlayerManager.FirstPlayer);
+            PlayerManager.MoneyActivity(locationSpawn, PlayerManager.FirstPlayer);
             BuyAuthorities = false;
             PlayerManager.PlayPointsConsumed(2);
         }   

@@ -105,6 +105,7 @@ public class SoldierDragDropScript : NetworkBehaviour
                     transform.SetParent(startParent.transform, false);
                     transform.position = startPosition;
                     ParentRegionScript.SetNeighbourRegionsFlicker(false);
+                    PlayerManager.PlayPointsConsumed(1);
                 }
                 if (result == 0 || result == 2)
                 {
@@ -114,7 +115,6 @@ public class SoldierDragDropScript : NetworkBehaviour
                     PlayerManager.SetRegionBusy(NewRegionScript, true);
                     PlayerManager.PlayUnit(this.gameObject, DropZone);
                     PlayerManager.PlayPointsConsumed(1);
-                    PlayerManager.DisplayPoints();
                     PlayerManager.DestroyBuildingsInArea(NewRegionScript, PlayerManager);
                     NewRegionScript.OwnerSet(PlayerManager.FirstPlayer);
                     NewRegionScript.SetCurrentUnit(this.gameObject);
@@ -137,7 +137,6 @@ public class SoldierDragDropScript : NetworkBehaviour
             PlayerManager.SetRegionBusy(NewRegionScript, true);
             PlayerManager.PlayUnit(this.gameObject, DropZone);
             PlayerManager.PlayPointsConsumed(1);
-            PlayerManager.DisplayPoints();
             PlayerManager.DestroyBuildingsInArea(NewRegionScript, PlayerManager);
             NewRegionScript.OwnerSet(PlayerManager.FirstPlayer);
             NewRegionScript.SetCurrentUnit(this.gameObject);
