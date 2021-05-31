@@ -9,16 +9,23 @@ public class UIManager : NetworkBehaviour
     public GameManager GameManager;
     public GameObject button;
     public GameObject playerText;
+    public GameObject playerTurnText;
 
     private void Start() 
     {
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        playerText = GameObject.Find("TurnInfo");
+        playerText = GameObject.Find("ExternalInfo");
+        playerTurnText = GameObject.Find("TurnInfo");
     }
 
     public void UpdatePlayerText(string text)
     {
         playerText.GetComponent<Text>().text = text;
+    }
+
+    public void UpdateTurnText(string text)
+    {
+        playerTurnText.GetComponent<Text>().text = text;
     }
 
 
