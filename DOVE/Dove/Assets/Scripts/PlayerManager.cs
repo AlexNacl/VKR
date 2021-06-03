@@ -617,10 +617,14 @@ public class PlayerManager : NetworkBehaviour
         if (pm.FirstPlayer)
         {
             countingTerr(true);
+            turnPointsLeft = turnPoints;
+            DisplayPoints();
         }
         if (!pm.FirstPlayer)
         {
             countingTerr(false);
+            turnPointsLeft = turnPoints;
+            DisplayPoints();
         }
     }
 
@@ -633,6 +637,7 @@ public class PlayerManager : NetworkBehaviour
             regionScript = LocationSockets[i].GetComponent<RegionScript>();
             if (regionScript.IsOwnerFirst == first && regionScript.IsOwnerNone == false)
             {
+                regionScript.OutlineChange();
                 regCount++;
                 if (regionScript.HaveMine && regionScript.isFinanceCener) 
                 {
@@ -651,9 +656,6 @@ public class PlayerManager : NetworkBehaviour
             Debug.Log("its p "+turnPoints+" and "+ turnPointsLeft);
             PointsText.text = turnPointsLeft.ToString();
         } 
-        //turnPoints = regCount + MineIncome + 1;
-        //curRegCount = regCount;
-        //turnPointsLeft = turnPoints;
         regCount = 0;
         MineIncome = 0;
         return;
@@ -772,10 +774,8 @@ public class PlayerManager : NetworkBehaviour
     {
         if (isFirst)
         {
-            Debug.Log("first");
             region.AddInfluece(10);
         } else {
-            Debug.Log("second");
             region.AddInfluece(-10);
         }
         DisplayPoints();

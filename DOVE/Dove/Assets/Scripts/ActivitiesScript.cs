@@ -108,12 +108,28 @@ public class ActivitiesScript : MonoBehaviour
     
     public void MoneyActivitySpawn()
     {
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+        int Playpoints = PlayerManager.GetPlayPoints();
+        if (Playpoints < 1)
+        {
+            UIManager.UpdatePlayerText("Not enough points");
+            return;
+        }
         MoneyActivity = true;
         OnClick();
     }
 
     public void CounterSpyActivitySpawn()
     {
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+        int Playpoints = PlayerManager.GetPlayPoints();
+        if (Playpoints < 1)
+        {
+            UIManager.UpdatePlayerText("Not enough points");
+            return;
+        }
         if (locationSpawn.HavePoliceStation)
         {
             CounterSpyActivity = true;
@@ -126,12 +142,28 @@ public class ActivitiesScript : MonoBehaviour
 
     public void RumorsActivitySpawn()
     {
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+        int Playpoints = PlayerManager.GetPlayPoints();
+        if (Playpoints < 1)
+        {
+            UIManager.UpdatePlayerText("Not enough points");
+            return;
+        }
         RumorsActivity = true;
         OnClick();
     }
 
     public void BuyAuthoritiesSpawn()
     {
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+        int Playpoints = PlayerManager.GetPlayPoints();
+        if (Playpoints < 3)
+        {
+            UIManager.UpdatePlayerText("Not enough points");
+            return;
+        }
         if (!locationSpawn.HavePoliceStation)
         {
             BuyAuthorities = true;

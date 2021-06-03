@@ -9317,7 +9317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2155945268143192425, guid: 3443844f8321ec4408da1dfa4e8acb27, type: 3}
       propertyPath: Influence
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2155945268143192425, guid: 3443844f8321ec4408da1dfa4e8acb27, type: 3}
       propertyPath: Neighbour1
@@ -11154,7 +11154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2155945268143192425, guid: 3443844f8321ec4408da1dfa4e8acb27, type: 3}
       propertyPath: Influence
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2155945268143192425, guid: 3443844f8321ec4408da1dfa4e8acb27, type: 3}
       propertyPath: Neighbour1

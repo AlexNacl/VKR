@@ -464,10 +464,12 @@ public class RegionScript : NetworkBehaviour
 
     public void AddInfluece(int add)
     {
-        if (Influence < 100 && Influence > 0)
+        if (Influence <= 100 && Influence >= 0)
         {
             Influence += add;
-        }
+        } 
+        if(Influence > 100) Influence = 100;
+        if(Influence < 0) Influence = 0;
         SliderSet();
     }
 
