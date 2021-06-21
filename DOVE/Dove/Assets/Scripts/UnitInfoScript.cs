@@ -56,6 +56,7 @@ public class UnitInfoScript : NetworkBehaviour
     public void DestroyUnit()
     {
         RegionScript reg = ParentRegion.GetComponent<RegionScript>();
+        reg.SetNeighbourRegionsFlicker(false);
         Debug.Log("Unit is destroying...");
         PlayerManager.DestroyUnit(this.gameObject, reg);
     }

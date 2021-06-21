@@ -43,7 +43,13 @@ public class ActivitiesScript : MonoBehaviour
             PlayerManager = networkIdentity.GetComponent<PlayerManager>();
             PlayerManager.MoneyActivity(locationSpawn, PlayerManager.FirstPlayer);
             MoneyActivity = false;
-            PlayerManager.PlayPointsConsumed(1);
+            if(locationSpawn.isSlums)
+            {
+                PlayerManager.PlayPointsConsumed(2);
+            } else 
+            {
+                PlayerManager.PlayPointsConsumed(1);
+            }
         }
         if (CounterSpyActivity)
         {
@@ -98,6 +104,7 @@ public class ActivitiesScript : MonoBehaviour
             PlayerManager.SabotageUnit(locationSpawn, unit);
             SabotageUnit = false;
         }
+        UIManager.UpdatePlayerText(" ");
     }
 
     public void SetLocation(GameObject thisLocation)
@@ -169,7 +176,7 @@ public class ActivitiesScript : MonoBehaviour
             BuyAuthorities = true;
             OnClick();
         } else {
-             UIManager.UpdatePlayerText("You can't do this while Police is whatching");
+            UIManager.UpdatePlayerText("You can't do this while Police is whatching");
         }
     }
 

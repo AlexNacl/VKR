@@ -57,6 +57,7 @@ public class RegionScript : NetworkBehaviour
     Color secondPlayerColor = new Vector4 (1,0,0,0.5f);
     Color nonePlayerColor = new Vector4 (0.5f,0.5f,0.5f,0.5f);
     Color ActiveColor = new Vector4 (1f,1f,1f,0.5f);
+    Color ChooseActiveColor = new Vector4 (0f,1f,0f,0.5f);
     Color firstPlayerColorImg = new Vector4 (1,0,1,1);
     Color secondPlayerColorImg = new Vector4 (1,0,0,1);
     Color nonePlayerColorImg = new Vector4 (0.5f,0.5f,0.5f,1);
@@ -86,6 +87,12 @@ public class RegionScript : NetworkBehaviour
     public GameObject Neighbour3;
     public GameObject Neighbour4;
 
+    //Отображение зданий
+    public GameObject OfficeLabel;
+    public GameObject PoliceLabel;
+    public GameObject BarrackLabel;
+    public GameObject StockLabel;
+
     public RegionScript NeighbourScript1;
     public RegionScript NeighbourScript2;
     public RegionScript NeighbourScript3;
@@ -100,6 +107,10 @@ public class RegionScript : NetworkBehaviour
     public  override void OnStartClient()
     {
         base.OnStartClient();
+        OfficeLabel = transform.Find("OfficeLabel").gameObject;
+        PoliceLabel = transform.Find("PoliceLabel").gameObject;
+        BarrackLabel = transform.Find("BarracksLabel").gameObject;
+        StockLabel = transform.Find("StockLabel").gameObject;
         PanelChange = GameObject.Find("ChangeBtn").GetComponent<ScriptPanelChange>();
         SpawnBtn = GameObject.Find("SpawnBtn");
         sliderObject = GameObject.Find("Slider");
@@ -135,56 +146,43 @@ public class RegionScript : NetworkBehaviour
         UnitList = GameObject.Find("UnitList");
         OutlineChange();
 
-        switch (NeighbourCount)
+        if (Neighbour1 != null)
         {
-            case 1:
-                NeighbourScript1 = Neighbour1.GetComponent<RegionScript>();
-                NeighboursArr.Add(Neighbour1);
-                NeighbourScriptArr.Add(NeighbourScript1);
-                break;
-            case 2:
-                NeighbourScript1 = Neighbour1.GetComponent<RegionScript>();
-                NeighbourScript2 = Neighbour2.GetComponent<RegionScript>();
-                NeighboursArr.Add(Neighbour1);
-                NeighbourScriptArr.Add(NeighbourScript1);
-                NeighboursArr.Add(Neighbour2);
-                NeighbourScriptArr.Add(NeighbourScript2);
-                break;
-            case 3:
-                NeighbourScript1 = Neighbour1.GetComponent<RegionScript>();
-                NeighbourScript2 = Neighbour2.GetComponent<RegionScript>();
-                NeighbourScript3 = Neighbour3.GetComponent<RegionScript>();
-                NeighboursArr.Add(Neighbour1);
-                NeighbourScriptArr.Add(NeighbourScript1);
-                NeighboursArr.Add(Neighbour2);
-                NeighbourScriptArr.Add(NeighbourScript2);
-                NeighboursArr.Add(Neighbour3);
-                NeighbourScriptArr.Add(NeighbourScript3);
-                break;
-            case 4:
-                NeighbourScript1 = Neighbour1.GetComponent<RegionScript>();
-                NeighbourScript2 = Neighbour2.GetComponent<RegionScript>();
-                NeighbourScript3 = Neighbour3.GetComponent<RegionScript>();
-                NeighbourScript4 = Neighbour4.GetComponent<RegionScript>();
-                NeighboursArr.Add(Neighbour1);
-                NeighbourScriptArr.Add(NeighbourScript1);
-                NeighboursArr.Add(Neighbour2);
-                NeighbourScriptArr.Add(NeighbourScript2);
-                NeighboursArr.Add(Neighbour3);
-                NeighbourScriptArr.Add(NeighbourScript3);
-                NeighboursArr.Add(Neighbour4);
-                NeighbourScriptArr.Add(NeighbourScript4);
-                break;
-            default:
-                break;
+            Debug.Log("Found!");
+            NeighbourScript1 = Neighbour1.GetComponent<RegionScript>();
+            NeighboursArr.Add(Neighbour1);
+            NeighbourScriptArr.Add(NeighbourScript1);
         }
+        if (Neighbour2 != null)
+        {
+            NeighbourScript2 = Neighbour2.GetComponent<RegionScript>();
+            NeighboursArr.Add(Neighbour2);
+            NeighbourScriptArr.Add(NeighbourScript2);
+        }
+        if (Neighbour3 != null)
+        {
+            NeighbourScript3 = Neighbour3.GetComponent<RegionScript>();
+            NeighboursArr.Add(Neighbour3);
+            NeighbourScriptArr.Add(NeighbourScript3);
+        }
+        if (Neighbour4 != null)
+        {
+            NeighbourScript4 = Neighbour4.GetComponent<RegionScript>();
+            NeighboursArr.Add(Neighbour4);
+            NeighbourScriptArr.Add(NeighbourScript4);
+        }
+
     }
 
     public void OnClick()
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
-        //PlayerManager.TerCount();
+
+        PlayerManager.OutlineBack();
+        regionOutline.effectColor = ChooseActiveColor;
+        
+        UIManager.UpdatePlayerText(" ");
         SliderSet();
         AlliagnceSet();
         activitiesScript.SetLocation(this.gameObject);
@@ -405,8 +403,30 @@ public class RegionScript : NetworkBehaviour
         IsOwnerFirst = isFirst;
     }
 
+    public void LabelsChange()
+    {
+        if(IsOwnerFirst == PlayerManager.FirstPlayer)
+        {
+            if (HaveMine) {StockLabel.SetActive(true);} else if (StockLabel!=null) {StockLabel.SetActive(false);}
+            if (HaveOffice) {OfficeLabel.SetActive(true);} else if (OfficeLabel!=null) {OfficeLabel.SetActive(false);}
+            if (HaveBarracks) {BarrackLabel.SetActive(true);} else if (BarrackLabel!=null) {BarrackLabel.SetActive(false);}
+            if (HavePoliceStation) {PoliceLabel.SetActive(true);} else if (PoliceLabel!=null) {PoliceLabel.SetActive(false);}
+        } else 
+        {
+            if (StockLabel!=null) {StockLabel.SetActive(false);}
+            if (OfficeLabel!=null) {OfficeLabel.SetActive(false);}
+            if (BarrackLabel!=null) {BarrackLabel.SetActive(false);}
+            if (PoliceLabel!=null) {PoliceLabel.SetActive(false);}
+        }
+    }
+
     public void OutlineChange()
     {
+        StockLabel.SetActive(false);
+        OfficeLabel.SetActive(false);
+        BarrackLabel.SetActive(false);
+        PoliceLabel.SetActive(false);
+
         if (IsOwnerNone) 
         {
             regionOutline.effectColor = nonePlayerColor;
@@ -421,6 +441,10 @@ public class RegionScript : NetworkBehaviour
         {
             regionOutline.effectColor = secondPlayerColor;
             regionImage.color = secondPlayerColorImg;
+        }
+        if (PlayerManager != null)
+        {
+            LabelsChange();
         }
     }
 
@@ -519,7 +543,7 @@ public class RegionScript : NetworkBehaviour
 
     public GameObject IfIsNeighbours(int StepRegion)
     {
-        Debug.Log("Checking");
+        Debug.Log("Checking, i = " + StepRegion + " and NeighboursArr = " + NeighboursArr.Count);
         GameObject istrue = NeighboursArr[StepRegion];
         return istrue;
     }

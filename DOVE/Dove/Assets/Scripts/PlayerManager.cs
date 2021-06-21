@@ -1108,6 +1108,15 @@ public class PlayerManager : NetworkBehaviour
         }
     
     }
+
+    public void OutlineBack()
+    {
+        for (int i = 0; i <= LocationSockets.Count-1; i++)
+        {
+            regionScript = LocationSockets[i].GetComponent<RegionScript>();
+            regionScript.OutlineChange();
+        }
+    }
         
 }
 

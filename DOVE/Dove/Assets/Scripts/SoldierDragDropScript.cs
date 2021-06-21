@@ -82,7 +82,7 @@ public class SoldierDragDropScript : NetworkBehaviour
         {
             transform.SetParent(startParent.transform, false);
             transform.position = startPosition;
-            ParentRegionScript.SetNeighbourRegionsFlicker(false);
+            FlickerOff();
         }
         NewRegionScript = DropZone.transform.gameObject.GetComponent<RegionScript>();
         ParentRegionScript = startParent.GetComponent<RegionScript>();
@@ -106,7 +106,7 @@ public class SoldierDragDropScript : NetworkBehaviour
                 {
                     transform.SetParent(startParent.transform, false);
                     transform.position = startPosition;
-                    ParentRegionScript.SetNeighbourRegionsFlicker(false);
+                    FlickerOff();
                     PlayerManager.PlayPointsConsumed(1);
                 }
                 if (result == 0 || result == 2)
@@ -120,7 +120,7 @@ public class SoldierDragDropScript : NetworkBehaviour
                     PlayerManager.DestroyBuildingsInArea(NewRegionScript, PlayerManager);
                     NewRegionScript.OwnerSet(PlayerManager.FirstPlayer);
                     NewRegionScript.SetCurrentUnit(this.gameObject);
-                    ParentRegionScript.SetNeighbourRegionsFlicker(false);
+                    FlickerOff();
                     PlayerManager.TerCount(); 
                     ParentRegionScript = DropZone.GetComponent<RegionScript>();
                 }
@@ -130,7 +130,7 @@ public class SoldierDragDropScript : NetworkBehaviour
                     PlayerManager.SetRegionBusy(NewRegionScript, false);
                     transform.SetParent(startParent.transform, false);
                     transform.position = startPosition;
-                    ParentRegionScript.SetNeighbourRegionsFlicker(false);
+                    FlickerOff();
             }
         } else if (isOverDropZone && PlayerManager.isMyTurn && !NewRegionScript.GetBusy() && isNeighbour)
         {
@@ -143,15 +143,20 @@ public class SoldierDragDropScript : NetworkBehaviour
             PlayerManager.DestroyBuildingsInArea(NewRegionScript, PlayerManager);
             NewRegionScript.OwnerSet(PlayerManager.FirstPlayer);
             NewRegionScript.SetCurrentUnit(this.gameObject);
-            ParentRegionScript.SetNeighbourRegionsFlicker(false);
+            FlickerOff();
             ParentRegionScript = DropZone.GetComponent<RegionScript>();
         } 
         else 
         {
                 transform.SetParent(startParent.transform, false);
                 transform.position = startPosition;
-                ParentRegionScript.SetNeighbourRegionsFlicker(false);
+                FlickerOff();
         }
+    }
+
+    public void FlickerOff()
+    {
+        ParentRegionScript.SetNeighbourRegionsFlicker(false);
     }
 
     public void IsDrugSetTrue()
