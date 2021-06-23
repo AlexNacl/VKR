@@ -121,7 +121,6 @@ public class SoldierDragDropScript : NetworkBehaviour
                     NewRegionScript.OwnerSet(PlayerManager.FirstPlayer);
                     NewRegionScript.SetCurrentUnit(this.gameObject);
                     FlickerOff();
-                    PlayerManager.TerCount(); 
                     ParentRegionScript = DropZone.GetComponent<RegionScript>();
                 }
             }
